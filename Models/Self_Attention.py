@@ -26,7 +26,7 @@ class Self_Attention(nn.Module):
         attention_head = []
         for i in range(self.head):
             #print(self.kernel1(x).size())
-            alpha = (F.softmax(self.kernel2[i](torch.tanh(self.kernel1(x))),dim=1))
+            alpha = (F.softmax(self.kernel2[i](torch.tanh(self.kernel1(x))),dim=1)) #self attention layer
             #print((alpha*x).sum(dim=1).size())
             if i == 0:
                 attention_head = (alpha*x).sum(dim=1)
